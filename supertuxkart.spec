@@ -22,7 +22,7 @@ friends.
 
 %description -l pl
 SuperTuxKart jest ulepszon± wersj± gry TuxKart, stworzonej przez
-Steve'a Baker'a, w której bierzemy udzia³ w wy¶cigach gokartowych jako
+Steve'a Bakera, w której bierzemy udzia³ w wy¶cigach gokartowych jako
 Tux lub jego przyjaciele.
 
 %prep
