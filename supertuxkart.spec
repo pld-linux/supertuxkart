@@ -1,6 +1,6 @@
 %define	_rc	rc2
-Summary:	SuperTuxKart is an enhanced version of TuxKart
-Summary(pl):	SuperTuxKart jest ulepszon± wersj± gry TuxKart
+Summary:	SuperTuxKart - an enhanced version of TuxKart
+Summary(pl):	SuperTuxKart - ulepszona wersja gry TuxKart
 Name:		supertuxkart
 Version:	0.2
 Release:	0.%{_rc}.1
