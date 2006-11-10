@@ -1,13 +1,14 @@
-%define	_rc	rc2
 Summary:	SuperTuxKart - an enhanced version of TuxKart
 Summary(pl):	SuperTuxKart - ulepszona wersja gry TuxKart
 Name:		supertuxkart
 Version:	0.2
-Release:	0.%{_rc}.1
-License:	GPL
+Release:	1
+License:	GPL v2+
 Group:		X11/Applications/Games
-Source0:	http://download.berlios.de/supertuxkart/%{name}-%{version}%{_rc}.tar.bz2
-# Source0-md5:	77d4715424a969bf102a9fdca3cb1f55
+Source0:	http://download.berlios.de/supertuxkart/SuperTuxKart-%{version}.tar.bz2
+# Source0-md5:	c31c35af3a9c12f2890b4076cf55267b
+Source1:	%{name}.desktop
+Source2:	%{name}.xpm
 URL:		http://supertuxkart.berlios.de
 BuildRequires:	OpenGL-devel
 BuildRequires:	autoconf
@@ -26,7 +27,7 @@ Steve'a Bakera, w której bierzemy udzia³ w wy¶cigach gokartowych jako
 Tux lub jego przyjaciele.
 
 %prep
-%setup -q -n %{name}-%{version}%{_rc}
+%setup -q
 
 %build
 %{__aclocal}
@@ -37,9 +38,13 @@ Tux lub jego przyjaciele.
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT{%{_desktopdir},%{_pixmapsdir}}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
+install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -49,3 +54,5 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS NEWS README TODO
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/games/%{name}
+%{_desktopdir}/%{name}.desktop
+%{_pixmapsdir}/%{name}.xpm
