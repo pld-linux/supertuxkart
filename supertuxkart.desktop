@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=SuperTuxKart
+Comment=An enhanced version of TuxKart
+Comment[pl]=SuperTuxKart - ulepszona wersja gry TuxKart
+Icon=supertuxkart.xpm
+Exec=supertuxkart
+Terminal=false
+Type=Application
+Categories=Game;X-RacingGame;
+Encoding=UTF-8
+# vi: encoding=utf-8
