@@ -1,5 +1,5 @@
 Summary:	SuperTuxKart - an enhanced version of TuxKart
-Summary(pl):	SuperTuxKart - ulepszona wersja gry TuxKart
+Summary(pl.UTF-8):   SuperTuxKart - ulepszona wersja gry TuxKart
 Name:		supertuxkart
 Version:	0.2
 Release:	1
@@ -21,9 +21,9 @@ SuperTuxKart is an enhanced version of TuxKart, a kart racing game,
 originaly done by Steve Baker, featuring Tux and a bunch of his
 friends.
 
-%description -l pl
-SuperTuxKart jest ulepszon± wersj± gry TuxKart, stworzonej przez
-Steve'a Bakera, w której bierzemy udzia³ w wy¶cigach gokartowych jako
+%description -l pl.UTF-8
+SuperTuxKart jest ulepszonÄ… wersjÄ… gry TuxKart, stworzonej przez
+Steve'a Bakera, w ktÃ³rej bierzemy udziaÅ‚ w wyÅ›cigach gokartowych jako
 Tux lub jego przyjaciele.
 
 %prep
