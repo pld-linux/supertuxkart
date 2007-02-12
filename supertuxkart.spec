@@ -1,5 +1,5 @@
 Summary:	SuperTuxKart - an enhanced version of TuxKart
-Summary(pl.UTF-8):   SuperTuxKart - ulepszona wersja gry TuxKart
+Summary(pl.UTF-8):	SuperTuxKart - ulepszona wersja gry TuxKart
 Name:		supertuxkart
 Version:	0.2
 Release:	1
