@@ -1,12 +1,12 @@
 Summary:	SuperTuxKart - an enhanced version of TuxKart
 Summary(pl.UTF-8):	SuperTuxKart - ulepszona wersja gry TuxKart
 Name:		supertuxkart
-Version:	0.2
-Release:	2
+Version:	0.3
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Games
-Source0:	http://download.berlios.de/supertuxkart/SuperTuxKart-%{version}.tar.bz2
-# Source0-md5:	c31c35af3a9c12f2890b4076cf55267b
+Source0:	http://download.berlios.de/supertuxkart/%{name}-%{version}-src.tar.bz2
+# Source0-md5:	4db5d46206ea72abed861cd524165944
 Source1:	%{name}.desktop
 Source2:	%{name}.xpm
 URL:		http://supertuxkart.berlios.de
