@@ -9,7 +9,7 @@ Source0:	http://download.berlios.de/supertuxkart/%{name}-%{version}-src.tar.bz2
 # Source0-md5:	4db5d46206ea72abed861cd524165944
 Source1:	%{name}.desktop
 Source2:	%{name}.xpm
-URL:		http://supertuxkart.berlios.de
+URL:		http://supertuxkart.sourceforge.net/
 BuildRequires:	OpenGL-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
