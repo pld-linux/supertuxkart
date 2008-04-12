@@ -8,7 +8,6 @@ Group:		X11/Applications/Games
 Source0:	http://dl.sourceforge.net/supertuxkart/%{name}-%{version}-src.tar.bz2
 # Source0-md5:	badcaf9cb51afc11c1abf126b2cbba74
 Source1:	%{name}.desktop
-Source2:	%{name}.xpm
 URL:		http://supertuxkart.sourceforge.net/
 BuildRequires:	OpenGL-devel
 BuildRequires:	autoconf
@@ -38,13 +37,12 @@ Tux lub jego przyjaciele.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_desktopdir},%{_pixmapsdir}}
+install -d $RPM_BUILD_ROOT%{_desktopdir}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
-install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -55,4 +53,4 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/games/%{name}
 %{_desktopdir}/%{name}.desktop
-%{_pixmapsdir}/%{name}.xpm
+%{_pixmapsdir}/%{name}_32.xpm

@@ -2,7 +2,7 @@
 Name=SuperTuxKart
 Comment=An enhanced version of TuxKart
 Comment[pl]=SuperTuxKart - ulepszona wersja gry TuxKart
-Icon=supertuxkart
+Icon=supertuxkart_32.xpm
 Exec=supertuxkart
 Terminal=false
 Type=Application
