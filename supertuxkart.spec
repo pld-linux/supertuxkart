@@ -7,10 +7,10 @@ License:	GPL v2+
 Group:		X11/Applications/Games
 Source0:	http://dl.sourceforge.net/supertuxkart/%{name}-%{version}.tar.bz2
 # Source0-md5:	5e11b2dd8ed3aa3ebe65294da6a42942
-Source1:	%{name}.desktop
+Patch0:		%{name}-desktop.patch
 URL:		http://supertuxkart.sourceforge.net/
 BuildRequires:	OpenAL-devel
-BuildRequires:	OpenGL-devel >= 3.0
+BuildRequires:	OpenGL-devel
 BuildRequires:	OpenGL-glut-devel
 BuildRequires:	SDL-devel
 BuildRequires:	autoconf
@@ -33,6 +33,7 @@ Tux lub jego przyjaciele.
 
 %prep
 %setup -q
+%patch0 -p1
 %{__sed} -i -e 's#@prefix@/games#@bindir@#' src/Makefile.am
 
 %build
@@ -49,7 +50,7 @@ install -d $RPM_BUILD_ROOT%{_desktopdir}
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
+install data/%{name}.desktop $RPM_BUILD_ROOT%{_desktopdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
