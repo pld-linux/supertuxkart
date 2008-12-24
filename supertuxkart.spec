@@ -1,13 +1,15 @@
+%define	_rc	rc1
 Summary:	SuperTuxKart - an enhanced version of TuxKart
 Summary(pl.UTF-8):	SuperTuxKart - ulepszona wersja gry TuxKart
 Name:		supertuxkart
-Version:	0.5
+Version:	0.6
 Release:	1
-License:	GPL v2+
+License:	GPL v3+
 Group:		X11/Applications/Games
-Source0:	http://dl.sourceforge.net/supertuxkart/%{name}-%{version}.tar.bz2
-# Source0-md5:	5e11b2dd8ed3aa3ebe65294da6a42942
+Source0:	http://dl.sourceforge.net/supertuxkart/%{name}-%{version}%{_rc}-src.tar.bz2
+# Source0-md5:	df5cfd692fe1fd3d47c901bd73508146
 Patch0:		%{name}-desktop.patch
+Patch1:		%{name}-useless_files.patch
 URL:		http://supertuxkart.sourceforge.net/
 BuildRequires:	OpenAL-devel
 BuildRequires:	OpenGL-devel
@@ -28,12 +30,13 @@ friends.
 
 %description -l pl.UTF-8
 SuperTuxKart jest ulepszoną wersją gry TuxKart, stworzonej przez
-Steve'a Bakera, w której bierzemy udział w wyścigach gokartowych jako
-Tux lub jego przyjaciele.
+Steve'a Bakera, w której bierzemy udział w wyścigach gokartowych
+jako Tux lub jego przyjaciele.
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{version}%{_rc}
 %patch0 -p1
+%patch1 -p1
 %{__sed} -i -e 's#@prefix@/games#@bindir@#' src/Makefile.am
 
 %build
@@ -57,7 +60,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS NEWS README TODO
+%doc ChangeLog NEWS README TODO data/CREDITS
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/games/%{name}
 %{_desktopdir}/%{name}.desktop
