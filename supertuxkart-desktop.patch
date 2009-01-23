@@ -1,21 +1,27 @@
---- supertuxkart-0.5/data/supertuxkart_desktop.template~	2008-06-17 23:23:04.000000000 +0200
-+++ supertuxkart-0.5/data/supertuxkart_desktop.template	2008-06-17 23:24:02.000000000 +0200
-@@ -2,14 +2,15 @@
+--- supertuxkart-0.6/data/supertuxkart_desktop.template~	2009-01-22 14:42:20.000000000 +0100
++++ supertuxkart-0.6/data/supertuxkart_desktop.template	2009-01-22 14:42:21.000000000 +0100
+@@ -1,17 +1,15 @@
+-
+ [Desktop Entry]
  Encoding=UTF-8
  Name=Supertuxkart
- Version=0.5
+-Version=0.5
 -Icon=PREFIX/share/pixmaps/supertuxkart_64.xpm
 +Icon=supertuxkart_32.xpm
  Comment=A kart racing game
- Comment[fr_FR]=Un jeu de karting
- Comment[ro_RO]=Un joc de curse cu carturi
- Comment[de_DE]=Ein Kart-Rennspiel
+-Comment[fr_FR]=Un jeu de karting
+-Comment[ro_RO]=Un joc de curse cu carturi
+-Comment[de_DE]=Ein Kart-Rennspiel
 -Exec=PREFIX/games/supertuxkart --log=file
-+Comment[pl]=Gra wy?cigowa
++Comment[fr]=Un jeu de karting
++Comment[ro]=Un joc de curse cu carturi
++Comment[de]=Ein Kart-Rennspiel
++Comment[pl]=Gra wyścigowa
 +Exec=supertuxkart
  Terminal=false
  StartupNotify=false
  Type=Application
 -TryExec=PREFIX/games/supertuxkart
  Categories=Game;ArcadeGame
+-GenericName=
 +# vi: encoding=utf-8
