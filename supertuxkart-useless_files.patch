@@ -1,28 +1,21 @@
---- supertuxkart-0.6rc1/Makefile.am~	2008-12-22 12:48:59.000000000 +0100
-+++ supertuxkart-0.6rc1/Makefile.am	2008-12-24 11:20:43.000000000 +0100
-@@ -5,6 +5,5 @@
- EXTRA_DIST = README README.cygwin README.macosx README.windows ChangeLog COPYING missing
+--- supertuxkart-0.6/Makefile.am~	2009-01-22 14:44:06.000000000 +0100
++++ supertuxkart-0.6/Makefile.am	2009-01-22 14:47:14.000000000 +0100
+@@ -7,7 +7,5 @@
+  README.macosx \
+  README.windows
  
- pkgdatadir=$(datadir)/doc/@PACKAGE@
--pkgdata_DATA=AUTHORS ChangeLog COPYING README
+-pkgdatadir=$(datadir)/doc/$(PACKAGE)
+-dist_pkgdata_DATA=AUTHORS ChangeLog COPYING README
  # NEWS only contains "see changelog"
  # CHANGES only contains "see NEW"
---- supertuxkart-0.6rc1/data/Makefile.am~	2008-12-22 12:48:10.000000000 +0100
-+++ supertuxkart-0.6rc1/data/Makefile.am	2008-12-24 11:22:06.000000000 +0100
-@@ -11,14 +11,14 @@
-                 $(shell find $(srcdir) -name "*.collectable") \
-                 $(shell find $(srcdir) -name "*.projectile")  \
-                 CREDITS licenses                              \
--                supertuxkart_32.xpm supertuxkart_64.xpm       \
-+                supertuxkart_32.xpm \
-                 supertuxkart_desktop.template
- 
- desktopdir = $(prefix)/share/applications
+--- supertuxkart-0.6/data/Makefile.am~	2009-01-22 14:44:06.000000000 +0100
++++ supertuxkart-0.6/data/Makefile.am	2009-01-22 14:49:00.000000000 +0100
+@@ -17,7 +17,7 @@
  desktop_DATA = supertuxkart.desktop
  
  icondir = $(prefix)/share/pixmaps
--icon_DATA = supertuxkart_32.xpm supertuxkart_64.xpm
-+icon_DATA = supertuxkart_32.xpm
+-dist_icon_DATA = supertuxkart_32.xpm supertuxkart_64.xpm
++dist_icon_DATA = supertuxkart_32.xpm
  
- EXTRA_DIST = $(pkgdata_DATA)
  
+ # The desktop file needs the absolute path to the binary
