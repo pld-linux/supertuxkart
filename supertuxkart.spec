@@ -1,12 +1,14 @@
 Summary:	SuperTuxKart - an enhanced version of TuxKart
 Summary(pl.UTF-8):	SuperTuxKart - ulepszona wersja gry TuxKart
 Name:		supertuxkart
-Version:	0.6
+Version:	0.6.1
 Release:	1
 License:	GPL v3+
 Group:		X11/Applications/Games
 Source0:	http://dl.sourceforge.net/supertuxkart/%{name}-%{version}-src.tar.bz2
-# Source0-md5:	4b6bd4cc415424423282f491ecdffcc4
+# Source0-md5:	7cddf934b9d5364a983b12b129fe91fa
+Source1:	http://dl.sourceforge.net/supertuxkart/addon%{version}-1.zip
+# Source1-md5:	28c2a6aff5190072e5b81b88d09126b8
 Patch0:		%{name}-desktop.patch
 Patch1:		%{name}-useless_files.patch
 Patch2:		%{name}-gettext.patch
@@ -21,6 +23,7 @@ BuildRequires:	freealut-devel >= 1.0.0
 BuildRequires:	libvorbis-devel
 BuildRequires:	plib-devel >= 1.8.4
 BuildRequires:	sed >= 4.0
+BuildRequires:	unzip
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -34,7 +37,7 @@ Steve'a Bakera, w której bierzemy udział w wyścigach gokartowych
 jako Tux lub jego przyjaciele.
 
 %prep
-%setup -q
+%setup -q -a 1
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
@@ -55,6 +58,8 @@ install -d $RPM_BUILD_ROOT%{_desktopdir}
 	DESTDIR=$RPM_BUILD_ROOT
 
 install data/%{name}.desktop $RPM_BUILD_ROOT%{_desktopdir}
+cp -rf tracks/* $RPM_BUILD_ROOT%{_datadir}/games/%{name}/data/tracks
+cp -rf karts/* $RPM_BUILD_ROOT%{_datadir}/games/%{name}/data/karts
 
 %clean
 rm -rf $RPM_BUILD_ROOT
