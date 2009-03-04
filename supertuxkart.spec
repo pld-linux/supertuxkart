@@ -1,13 +1,16 @@
+
+%define		_addons_ver	0.6.1
+
 Summary:	SuperTuxKart - an enhanced version of TuxKart
 Summary(pl.UTF-8):	SuperTuxKart - ulepszona wersja gry TuxKart
 Name:		supertuxkart
-Version:	0.6.1
+Version:	0.6.1a
 Release:	1
 License:	GPL v3+
 Group:		X11/Applications/Games
-Source0:	http://dl.sourceforge.net/supertuxkart/%{name}-%{version}-src.tar.bz2
-# Source0-md5:	7cddf934b9d5364a983b12b129fe91fa
-Source1:	http://dl.sourceforge.net/supertuxkart/addon%{version}-1.zip
+Source0:	http://dl.sourceforge.net/supertuxkart/%{name}-%{version}.tar.bz2
+# Source0-md5:	2617a0de97f604ca692fcbd685e742ef
+Source1:	http://dl.sourceforge.net/supertuxkart/addon%{_addons_ver}-1.zip
 # Source1-md5:	28c2a6aff5190072e5b81b88d09126b8
 Patch0:		%{name}-desktop.patch
 Patch1:		%{name}-useless_files.patch
