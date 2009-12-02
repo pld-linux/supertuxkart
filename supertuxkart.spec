@@ -4,13 +4,13 @@
 Summary:	SuperTuxKart - an enhanced version of TuxKart
 Summary(pl.UTF-8):	SuperTuxKart - ulepszona wersja gry TuxKart
 Name:		supertuxkart
-Version:	0.6.2
+Version:	0.6.2a
 Release:	1
 License:	GPL v3+
 Group:		X11/Applications/Games
-Source0:	http://dl.sourceforge.net/supertuxkart/%{name}-%{version}-src.tar.bz2
-# Source0-md5:	bfee9844acc2d4e168d903f6aae6d591
-Source1:	http://dl.sourceforge.net/supertuxkart/addon%{_addons_ver}-1.zip
+Source0:	http://downloads.sourceforge.net/supertuxkart/%{name}-%{version}-src.tar.bz2
+# Source0-md5:	1672795016cc4964506706ac3287621e
+Source1:	http://downloads.sourceforge.net/supertuxkart/addon%{_addons_ver}-1.zip
 # Source1-md5:	28c2a6aff5190072e5b81b88d09126b8
 Patch0:		%{name}-desktop.patch
 Patch1:		%{name}-useless_files.patch
@@ -37,8 +37,8 @@ friends.
 
 %description -l pl.UTF-8
 SuperTuxKart jest ulepszoną wersją gry TuxKart, stworzonej przez
-Steve'a Bakera, w której bierzemy udział w wyścigach gokartowych
-jako Tux lub jego przyjaciele.
+Steve'a Bakera, w której bierzemy udział w wyścigach gokartowych jako
+Tux lub jego przyjaciele.
 
 %prep
 %setup -q -a 1
