@@ -23,7 +23,6 @@ BuildRequires:	OpenGL-glut-devel
 BuildRequires:	SDL-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	freealut-devel >= 1.0.0
 BuildRequires:	libvorbis-devel
 BuildRequires:	plib-devel >= 1.8.4
 BuildRequires:	sed >= 4.0
