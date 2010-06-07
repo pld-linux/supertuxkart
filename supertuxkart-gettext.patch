@@ -9,3 +9,26 @@
  
  dnl =======================================================
  dnl Add special compiler flags for SDL on certain platforms
+--- supertuxkart-0.7alpha2/src/utils/translation.cpp~	2010-01-18 23:18:36.000000000 +0100
++++ supertuxkart-0.7alpha2/src/utils/translation.cpp	2010-06-07 13:28:41.332457077 +0200
+@@ -33,6 +33,7 @@
+ #include <string.h>
+ #include <stdlib.h>
+ #include <iostream>
++#include <libintl.h>
+ 
+ #include "irrlicht.h"
+ 
+@@ -92,12 +93,7 @@
+     #endif
+ #endif
+     
+-#if ENABLE_NLS
+     const char* original_t = gettext(original);
+-#else
+-    m_converted_string = core::stringw(original);
+-    return m_converted_string.c_str();
+-#endif
+ 
+     /*
+     std::cout << "--> original_t==original ? " << (original_t==original) << std::endl;
