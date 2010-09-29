@@ -1,5 +1,5 @@
 
-%define		_alpha		alpha2
+%define		_alpha		alpha3
 %define		_addons_ver	0.6.1
 
 Summary:	SuperTuxKart - an enhanced version of TuxKart
@@ -10,7 +10,7 @@ Release:	0.%{_alpha}.1
 License:	GPL v3+
 Group:		X11/Applications/Games
 Source0:	http://downloads.sourceforge.net/supertuxkart/%{name}-%{version}%{_alpha}.tar.bz2
-# Source0-md5:	b8b8402c4d5ff13342a4b38c3597f718
+# Source0-md5:	a29987c0caf2e36e98f8c066b93ef171
 Source1:	http://downloads.sourceforge.net/supertuxkart/addon%{_addons_ver}-1.zip
 # Source1-md5:	28c2a6aff5190072e5b81b88d09126b8
 Patch0:		%{name}-desktop.patch
