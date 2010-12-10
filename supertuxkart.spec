@@ -24,8 +24,8 @@ BuildRequires:	OpenGL-glut-devel
 BuildRequires:	SDL-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	irrlicht-devel >= 1.7
 BuildRequires:	libvorbis-devel
-BuildRequires:	plib-devel >= 1.8.4
 BuildRequires:	sed >= 4.0
 BuildRequires:	unzip
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
