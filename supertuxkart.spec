@@ -4,12 +4,12 @@
 Summary:	SuperTuxKart - an enhanced version of TuxKart
 Summary(pl.UTF-8):	SuperTuxKart - ulepszona wersja gry TuxKart
 Name:		supertuxkart
-Version:	0.6.2a
+Version:	0.7
 Release:	1
 License:	GPL v3+
 Group:		X11/Applications/Games
 Source0:	http://downloads.sourceforge.net/supertuxkart/%{name}-%{version}-src.tar.bz2
-# Source0-md5:	1672795016cc4964506706ac3287621e
+# Source0-md5:	2806f271e4d37fee5ad8ca166e1ad489
 Source1:	http://downloads.sourceforge.net/supertuxkart/addon%{_addons_ver}-1.zip
 # Source1-md5:	28c2a6aff5190072e5b81b88d09126b8
 Patch0:		%{name}-desktop.patch
@@ -23,8 +23,8 @@ BuildRequires:	OpenGL-glut-devel
 BuildRequires:	SDL-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	irrlicht-devel >= 1.7
 BuildRequires:	libvorbis-devel
-BuildRequires:	plib-devel >= 1.8.4
 BuildRequires:	sed >= 4.0
 BuildRequires:	unzip
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -62,8 +62,8 @@ install -d $RPM_BUILD_ROOT%{_desktopdir}
 	DESTDIR=$RPM_BUILD_ROOT
 
 install data/%{name}.desktop $RPM_BUILD_ROOT%{_desktopdir}
-cp -rf tracks/* $RPM_BUILD_ROOT%{_datadir}/games/%{name}/data/tracks
-cp -rf karts/* $RPM_BUILD_ROOT%{_datadir}/games/%{name}/data/karts
+cp -a tracks/* $RPM_BUILD_ROOT%{_datadir}/games/%{name}/data/tracks
+cp -a karts/* $RPM_BUILD_ROOT%{_datadir}/games/%{name}/data/karts
 
 %clean
 rm -rf $RPM_BUILD_ROOT
