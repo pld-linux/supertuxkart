@@ -1,10 +1,10 @@
---- supertuxkart-0.6.1a/data/Makefile.am~	2009-08-19 11:46:35.000000000 +0200
-+++ supertuxkart-0.6.1a/data/Makefile.am	2009-08-19 12:01:16.000000000 +0200
-@@ -10,7 +10,6 @@
-  $(shell find $(srcdir) -name "*.cup") \
+--- supertuxkart-0.7alpha2/data/Makefile.am~	2010-06-07 13:50:17.795655705 +0200
++++ supertuxkart-0.7alpha2/data/Makefile.am	2010-06-07 13:51:07.825651246 +0200
+@@ -6,7 +6,6 @@
+ dist_pkgdata_DATA = \
+  $(shell find $(srcdir) -name "*.data")                  \
+  $(shell find $(srcdir) -name "*.items")                 \
+- $(shell find $(srcdir) -name "*.projectile")            \
+  $(shell find $(srcdir) -name "*.cup")                   \
   $(shell find $(srcdir) -maxdepth 1 -name "*.challenge") \
-  $(shell find $(srcdir) -name "*.collectable") \
-- $(shell find $(srcdir) -name "*.projectile") \
-  CREDITS
- 
- desktopdir = $(prefix)/share/applications
+  $(shell find $(srcdir) -name "*.collectable")           \
