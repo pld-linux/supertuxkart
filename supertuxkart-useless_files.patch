@@ -1,13 +1,3 @@
---- supertuxkart-0.6/Makefile.am~	2009-01-22 14:44:06.000000000 +0100
-+++ supertuxkart-0.6/Makefile.am	2009-01-22 14:47:14.000000000 +0100
-@@ -7,7 +7,5 @@
-  README.macosx \
-  README.windows
- 
--pkgdatadir=$(datadir)/doc/$(PACKAGE)
--dist_pkgdata_DATA=AUTHORS ChangeLog COPYING README
- # NEWS only contains "see changelog"
- # CHANGES only contains "see NEW"
 --- supertuxkart-0.6/data/Makefile.am~	2009-01-22 14:44:06.000000000 +0100
 +++ supertuxkart-0.6/data/Makefile.am	2009-01-22 14:49:00.000000000 +0100
 @@ -17,7 +17,7 @@
