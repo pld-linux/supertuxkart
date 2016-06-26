@@ -1,10 +1,8 @@
-
-
 Summary:	SuperTuxKart - an enhanced version of TuxKart
 Summary(pl.UTF-8):	SuperTuxKart - ulepszona wersja gry TuxKart
 Name:		supertuxkart
 Version:	0.8
-Release:	1
+Release:	3
 License:	GPL v1, GPL v2, GPL v3+, CC-BY-SA v3, CC-BY-SA v3+
 Group:		X11/Applications/Games
 Source0:	http://downloads.sourceforge.net/supertuxkart/%{name}-%{version}-src.tar.bz2
@@ -23,6 +21,7 @@ BuildRequires:	libvorbis-devel
 BuildRequires:	pkgconfig
 BuildRequires:	sed >= 4.0
 BuildRequires:	unzip
+Requires:	%{name}-data = %{version}-%{release}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -34,6 +33,16 @@ friends.
 SuperTuxKart jest ulepszoną wersją gry TuxKart, stworzonej przez
 Steve'a Bakera, w której bierzemy udział w wyścigach gokartowych jako
 Tux lub jego przyjaciele.
+
+%package data
+Summary:	SuperTuxKart data files
+Group:		X11/Applications/Games
+%if "%{_rpmversion}" >= "5"
+BuildArch:	noarch
+%endif
+
+%description data
+SuperTuxKart data files
 
 %prep
 %setup -q -n SuperTuxKart-%{version}
@@ -55,7 +64,7 @@ install -d $RPM_BUILD_ROOT%{_desktopdir}
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-install data/%{name}.desktop $RPM_BUILD_ROOT%{_desktopdir}
+cp -p data/%{name}.desktop $RPM_BUILD_ROOT%{_desktopdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -64,6 +73,9 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc ChangeLog README TODO data/CREDITS
 %attr(755,root,root) %{_bindir}/*
-%{_datadir}/games/%{name}
 %{_desktopdir}/%{name}.desktop
 %{_pixmapsdir}/%{name}_32.xpm
+
+%files data
+%defattr(644,root,root,755)
+%{_datadir}/games/%{name}
