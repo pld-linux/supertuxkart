@@ -37,9 +37,7 @@ Tux lub jego przyjaciele.
 %package data
 Summary:	SuperTuxKart data files
 Group:		X11/Applications/Games
-%if "%{_rpmversion}" >= "5"
 BuildArch:	noarch
-%endif
 
 %description data
 SuperTuxKart data files
