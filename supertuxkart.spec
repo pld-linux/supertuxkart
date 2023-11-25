@@ -1,26 +1,33 @@
 Summary:	SuperTuxKart - an enhanced version of TuxKart
 Summary(pl.UTF-8):	SuperTuxKart - ulepszona wersja gry TuxKart
 Name:		supertuxkart
-Version:	0.8
-Release:	3
+Version:	1.4
+Release:	1
 License:	GPL v1, GPL v2, GPL v3+, CC-BY-SA v3, CC-BY-SA v3+
 Group:		X11/Applications/Games
-Source0:	http://downloads.sourceforge.net/supertuxkart/%{name}-%{version}-src.tar.bz2
-# Source0-md5:	0b939ce601374758938119e0b0dd1fec
-Patch0:		%{name}-desktop.patch
-Patch1:		%{name}-useless_files.patch
-URL:		http://supertuxkart.sourceforge.net/
+Source0:	https://github.com/supertuxkart/stk-code/releases/download/%{version}/SuperTuxKart-%{version}-src.tar.xz
+# Source0-md5:	c87a67ea6d5b52d464fe3d112db20263
+Patch0:		gcc13.patch
+URL:		https://supertuxkart.net/
 BuildRequires:	OpenAL-devel
 BuildRequires:	OpenGL-devel
-BuildRequires:	OpenGL-glut-devel
-BuildRequires:	SDL-devel
-BuildRequires:	autoconf
-BuildRequires:	automake
-BuildRequires:	irrlicht-devel >= 1.7
+BuildRequires:	SDL2-devel
+BuildRequires:	bluez-libs-devel
+BuildRequires:	cmake
+BuildRequires:	curl-devel
+BuildRequires:	freetype-devel
+BuildRequires:	harfbuzz-devel
+BuildRequires:	libjpeg-devel
+BuildRequires:	libogg-devel
+BuildRequires:	libpng-devel
 BuildRequires:	libvorbis-devel
+BuildRequires:	openssl-devel
 BuildRequires:	pkgconfig
-BuildRequires:	sed >= 4.0
-BuildRequires:	unzip
+BuildRequires:	python3 >= 1:3
+BuildRequires:	sqlite3-devel
+BuildRequires:	squish-devel
+BuildRequires:	wiiuse-devel
+BuildRequires:	zlib-devel
 Requires:	%{name}-data = %{version}-%{release}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -42,38 +49,57 @@ BuildArch:	noarch
 %description data
 SuperTuxKart data files
 
+%post
+%update_desktop_database_post
+%update_icon_cache hicolor
+
+%postun
+%update_desktop_database_postun
+%update_icon_cache hicolor
+
 %prep
-%setup -q -n SuperTuxKart-%{version}
+%setup -q -n SuperTuxKart-%{version}-src
 %patch0 -p1
-%patch1 -p1
-%{__sed} -i -e 's#$(prefix)/games#%{_bindir}#' src/Makefile.am
 
 %build
-%{__aclocal}
-%{__autoconf}
-%{__automake}
-%configure
+mkdir -p build
+cd build
+# cmake makro doesnn't work in this case
+cmake .. \
+        -DCMAKE_INSTALL_PREFIX=%{_prefix} \
+        -DCMAKE_C_FLAGS="%{optflags} -fno-strict-aliasing" \
+        -DCMAKE_CXX_FLAGS="%{optflags} -fno-strict-aliasing" \
+        -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON \
+        -DBUILD_RECORDER=0 \
+        -DOpenGL_GL_PREFERENCE=GLVND \
+        -DUSE_SYSTEM_WIIUSE:BOOL=ON \
+        -DCMAKE_BUILD_TYPE=RelWithDebInfo
+
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_desktopdir}
 
+cd build
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-cp -p data/%{name}.desktop $RPM_BUILD_ROOT%{_desktopdir}
+# angelscript is not needed
+%{__rm} $RPM_BUILD_ROOT%{_includedir}/angelscript.h
+%{__rm} -r $RPM_BUILD_ROOT%{_prefix}/lib/cmake/Angelscript
+%{__rm} $RPM_BUILD_ROOT%{_prefix}/lib/libangelscript.a
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc ChangeLog README TODO data/CREDITS
-%attr(755,root,root) %{_bindir}/*
-%{_desktopdir}/%{name}.desktop
-%{_pixmapsdir}/%{name}_32.xpm
+%doc CHANGELOG.md NETWORKING.md README.md data/CREDITS
+%attr(755,root,root) %{_bindir}/supertuxkart
+%{_desktopdir}/supertuxkart.desktop
+%{_iconsdir}/hicolor/*x*/apps/supertuxkart.png
+%{_datadir}/metainfo/supertuxkart.appdata.xml
 
 %files data
 %defattr(644,root,root,755)
-%{_datadir}/games/%{name}
+%{_datadir}/%{name}
