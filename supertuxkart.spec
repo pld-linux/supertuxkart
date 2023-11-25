@@ -71,7 +71,6 @@ cmake .. \
         -DCMAKE_CXX_FLAGS="%{optflags} -fno-strict-aliasing" \
         -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON \
         -DBUILD_RECORDER=0 \
-        -DOpenGL_GL_PREFERENCE=GLVND \
         -DUSE_SYSTEM_WIIUSE:BOOL=ON \
         -DCMAKE_BUILD_TYPE=RelWithDebInfo
 
