@@ -68,7 +68,7 @@ cd build
 cmake .. \
         -DCMAKE_INSTALL_PREFIX=%{_prefix} \
         -DCMAKE_C_FLAGS="%{optflags} -fno-strict-aliasing" \
-        -DCMAKE_CXX_FLAGS="%{optflags} -fno-strict-aliasing" \
+        -DCMAKE_CXX_FLAGS="%{optflags} -fno-strict-aliasing -DAS_MAX_PORTABILITY" \
         -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON \
         -DBUILD_RECORDER=0 \
         -DUSE_SYSTEM_WIIUSE:BOOL=ON \
