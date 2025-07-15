@@ -59,7 +59,7 @@ SuperTuxKart data files
 
 %prep
 %setup -q -n SuperTuxKart-%{version}-src
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 mkdir -p build
